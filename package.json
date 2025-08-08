@@ -1,7 +1,7 @@
 {
-  "name": "rest_api_hermes_service",
+  "name": "docker_oriented_rest",
   "version": "1.0.0",
-  "description": "This repository is a basis to kickstart building a REST API backend.",
+  "description": "A simple RESTful API.",
   "main": "index.js",
   "scripts": {
     "compile": "tsc",
