@@ -1,14 +1,14 @@
-import childProcess = require('child_process');
+import ChildProcess = require('child_process');
 import metadata = require('../metadata');
 
-const { execSync } = childProcess;
+const { execSync } = ChildProcess;
 const { packageData, projectDirectory } = metadata;
 
 const imageTag = `${packageData['name']}:latest`;
 const containerName = `${packageData['name']}-container`;
 const containerPort = packageData['containerPort'];
 const hostPort = packageData['hostPort'];
-const execSyncOptions: childProcess.ExecSyncOptionsWithStringEncoding = {
+const execSyncOptions: ChildProcess.ExecSyncOptionsWithStringEncoding = {
   encoding: 'ascii',
   cwd: projectDirectory,
 };
@@ -25,10 +25,6 @@ if (isContainerExists)
     execSyncOptions
   );
 
-execSync(
-  'npm run compile -- --project ./tsconfig.production.json',
-  execSyncOptions
-);
 execSync(
   `docker build . -t ${imageTag} --build-arg CONTAINER_PORT=${containerPort}`,
   execSyncOptions
