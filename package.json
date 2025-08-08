@@ -4,15 +4,23 @@
   "description": "This repository is a basis to kickstart building a REST API backend.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "npm run build && node ./dist/index.js"
+    "compile": "tsc",
+    "start": "node ./dist/index.js",
+    "serve": "npm run compile && node ./dist/scripts/serve.js",
+    "dev": "npm run compile && npm run start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "ts-node": "^10.9.2",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.0",
     "typescript": "^5.9.2"
-  }
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "containerPort": 8080,
+  "hostPort": 8080
 }
