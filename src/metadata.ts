@@ -7,7 +7,11 @@ const packageData = JSON.parse(
   fs.readFileSync(path.join(projectDirectory, 'package.json')).toString()
 );
 dotenv.config({
+  path: path.join(projectDirectory, '.env'),
+});
+dotenv.config({
   path: path.join(projectDirectory, '.env.local'),
+  override: true,
 });
 
 export = {

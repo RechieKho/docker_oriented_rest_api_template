@@ -6,6 +6,8 @@ const containerPort = metadata.packageData['containerPort'] as number;
 const hostPort = metadata.packageData['hostPort'] as number;
 const app = express();
 
+console.table(process.env);
+
 app.get('/', (_req, res) => {
   res.send('Hello World!');
 });
